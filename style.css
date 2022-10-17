@@ -3,3 +3,12 @@
 body {
     font-family: sans-serif;
 }
+
+.grid-container {
+    display: grid;
+    gap: 3px;
+}
+
+.grid-item {
+    background-color:rgb(174, 174, 225);
+}

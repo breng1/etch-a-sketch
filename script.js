@@ -33,25 +33,34 @@ sizeText.textContent = slider.value;
 slider.addEventListener('input', (e) => {
     sizeText.textContent = slider.value;
     makeGrid(slider.value);
+    let gridItemArray = document.querySelectorAll(".grid-item");
+    darken(gridItemArray);
+    erase(gridItemArray);
 })
 
 
 // Darken cells upon hovering
 let gridItemArray = document.querySelectorAll(".grid-item");
-gridItemArray.forEach(item => {
-    item.addEventListener('mouseover', (e) => {
-        item.style.backgroundColor = "black";
+
+function darken(gridItemArray){
+    gridItemArray.forEach(item => {
+        item.addEventListener('mouseover', (e) => {
+            item.style.backgroundColor = "black";
+        })
     })
-})
+}
+
+darken(gridItemArray)
 
 // Erase grid
 let eraser = document.querySelector("#erase");
-eraser.addEventListener('click', (e) => {
-    gridItemArray.forEach(item => {
-        item.style.backgroundColor = "rgb(204, 202, 202)";
+
+function erase (gridItemArray) {
+    eraser.addEventListener('click', (e) => {
+        gridItemArray.forEach(item => {
+            item.style.backgroundColor = "rgb(204, 202, 202)";
+        })
     })
-})
+}
 
-
-
-
+erase(gridItemArray);

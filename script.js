@@ -6,6 +6,9 @@ const GRID_AREA = 400;
 function makeGrid (size) {
     let container = document.querySelector(".grid-container");
 
+    // Clear existing grid items
+    container.textContent = '';
+
     // Set rows, columns, and cell size
     let cellArea = GRID_AREA/size;
     container.style.gridTemplateRows = `repeat(${size}, ${cellArea}px)`;
@@ -17,12 +20,21 @@ function makeGrid (size) {
         item.classList.add(`grid-item`);
         //item.textContent = `${i}`;
         container.appendChild(item);
-    }
+    } 
 }
 
+// Set grid size based on slider input
+let slider = document.getElementById("gridRange");
+let sizeText = document.getElementById("gridSize");
+makeGrid(slider.value);
 
+// Indicate initial and current slider value
+sizeText.textContent = slider.value;
+slider.addEventListener('input', (e) => {
+    sizeText.textContent = slider.value;
+    makeGrid(slider.value);
+})
 
-makeGrid(16);
 
 // Darken cells upon hovering
 let gridItemArray = document.querySelectorAll(".grid-item");
@@ -32,12 +44,14 @@ gridItemArray.forEach(item => {
     })
 })
 
+// Erase grid
 let eraser = document.querySelector("#erase");
 eraser.addEventListener('click', (e) => {
     gridItemArray.forEach(item => {
         item.style.backgroundColor = "rgb(204, 202, 202)";
     })
 })
+
 
 
 

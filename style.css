@@ -7,8 +7,13 @@ body {
 .grid-container {
     display: grid;
     gap: 3px;
+    background-color: white;
 }
 
 .grid-item {
-    background-color:rgb(174, 174, 225);
+    background-color: rgb(204, 202, 202);
+}
+
+.darkened {
+    background-color: black;
 }

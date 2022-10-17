@@ -24,11 +24,18 @@ function makeGrid (size) {
 
 makeGrid(16);
 
-// Darkened cells upon hovering
+// Darken cells upon hovering
 let gridItemArray = document.querySelectorAll(".grid-item");
 gridItemArray.forEach(item => {
     item.addEventListener('mouseover', (e) => {
-        item.classList.add('darkened');
+        item.style.backgroundColor = "black";
+    })
+})
+
+let eraser = document.querySelector("#erase");
+eraser.addEventListener('click', (e) => {
+    gridItemArray.forEach(item => {
+        item.style.backgroundColor = "rgb(204, 202, 202)";
     })
 })
 

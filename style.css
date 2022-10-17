@@ -17,3 +17,7 @@ body {
 .darkened {
     background-color: black;
 }
+
+#erase {
+    margin: 30px 0px;
+}
